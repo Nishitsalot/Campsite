@@ -1,0 +1,29 @@
+<%- include('./partials/header') -%>
+<div class="container">
+
+<% allCamps.forEach(function(camps){ %>
+    <% camps.comments.forEach(function(comment){ %> 
+        <% if(comment.author.id.equals(currentUser._id)){ %> 
+                <div class="row well">
+                    <div class="col-lg-3">
+                        <div style="border: 1px solid black;" class="thumbnail">
+                            <img class="image" src="<%= camps.image %> ">
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <h2><%= camps.name %> - </h2>
+                        <hr>
+                        <h4><%= comment.text %> </h4>
+                    </div>
+                </div>
+                
+        <% } %> 
+    <% }) %> 
+ <% }) %> 
+            
+        </div>
+
+
+
+
+<%- include('./partials/footer') -%>
